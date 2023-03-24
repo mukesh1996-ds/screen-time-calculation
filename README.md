@@ -42,3 +42,14 @@ Keep in mind that there could be frames when neither TOM nor JERRY are present. 
 * 2 – for TOM
 
 I have annoted every frame and stored inside the excel.
+
+The frame.csv file contains two columns:
+
+* Image_ID: Contains the name of each image
+* Class: Contains corresponding class for each image
+
+Our next step is to read the images which we will do based on their names, aka, the Image_ID column.
+
+We will be using a VGG16 pretrained model which takes an input image of shape (224 X 224 X 3). Since our images are in a different size, we need to reshape all of them. We will use the resize() function of skimage.transform to do this.
+
+All the images have been reshaped to 224 X 224 X 3. But before passing any input to the model, we must preprocess it as per the model’s requirement. Otherwise, the model will not perform well enough. Use the preprocess_input() function of keras.applications.vgg16 to perform this step.
